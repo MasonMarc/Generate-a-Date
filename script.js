@@ -58,6 +58,11 @@ var displayMeal = function (meals) {
         console.log(mealName);
         console.log(randMeal);
         $('#meal-title').text(mealName);
+        var mealpicurl = meals[randMeal].strMealThumb
+        $("#mealPic").attr("src", mealpicurl)
+        var meallink = "https://www.google.com/search?q=" + mealName
+        $("#meallink").attr("href", meallink)
+        
         //$('.meal-title').meals(results[i].strMeal);
      }
 $('#init').click(function (event) { 
