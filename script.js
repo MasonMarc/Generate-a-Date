@@ -25,6 +25,9 @@ var apiUrl = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + liquo
             if (response.ok) {
                 response.json().then(function (data) {
                     console.log(data);
+                    var drinks = data.drinks;
+                    displayDrink(drinks);
+                    console.log(drinks);
                 });
             } else {
                 alert('Error: ' + response.statusText);
@@ -63,7 +66,20 @@ var displayMeal = function (meals) {
         var meallink = "https://www.google.com/search?q=" + mealName
         $("#meallink").attr("href", meallink)
         
-        //$('.meal-title').meals(results[i].strMeal);
+
+     }
+     var displayDrink = function (drinks) {
+        var randDrink = Math.floor(drinks.length * Math.random());
+        var drinksName = drinks[randDrink].strDrink;
+        console.log("test")
+        console.log(randDrink);
+        $('#drink-title').text(drinksName);
+        var drinkspicurl = drinks[randDrink].strDrinkThumb
+        $("#drinkPic").attr("src", drinkspicurl)
+        var drinkslink = "https://www.google.com/search?q=" + drinksName
+        $("#drinklink").attr("href", drinkslink)
+        
+
      }
 $('#init').click(function (event) { 
     event.preventDefault();
