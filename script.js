@@ -1,9 +1,5 @@
-
-
-
 var getMeal = function () {
     var ingredient = $('#ingredient').val();
-    // var category = 'Seafood';
 var apiUrl = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=' + ingredient
     fetch(apiUrl)
         .then(function (response) {
@@ -56,7 +52,6 @@ var apiUrl = 'http://www.omdbapi.com/?i=tt00' + rand + '&apikey=5523dad2';
             alert('Unable to connect');
         });
 };
-
 var displayMeal = function (meals) {
         var randMeal = Math.floor(meals.length * Math.random());
         var mealName = meals[randMeal].strMeal;
@@ -65,8 +60,6 @@ var displayMeal = function (meals) {
         $('#meal-title').text(mealName);
         //$('.meal-title').meals(results[i].strMeal);
      }
-
-
 $('#init').click(function (event) { 
     event.preventDefault();
     getMeal();
