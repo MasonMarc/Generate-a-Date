@@ -66,7 +66,6 @@ var displayMeal = function (meals) {
         var meallink = "https://www.google.com/search?q=" + mealName
         $("#meallink").attr("href", meallink)
         
-
      }
      var displayDrink = function (drinks) {
         var randDrink = Math.floor(drinks.length * Math.random());
@@ -78,7 +77,6 @@ var displayMeal = function (meals) {
         $("#drinkPic").attr("src", drinkspicurl)
         var drinkslink = "https://www.google.com/search?q=" + drinksName
         $("#drinklink").attr("href", drinkslink)
-        
 
      }
 $('#init').click(function (event) { 
