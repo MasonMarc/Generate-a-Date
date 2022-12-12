@@ -1,8 +1,10 @@
 
 
+
 var getMeal = function () {
-    var category = 'Seafood';
-var apiUrl = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=' + category
+    var ingredient = $('#ingredient').val();
+    // var category = 'Seafood';
+var apiUrl = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=' + ingredient
     fetch(apiUrl)
         .then(function (response) {
             if (response.ok) {
@@ -18,7 +20,7 @@ var apiUrl = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=' + category
         });
 };
 var getDrink = function () {
-    var liquor = 'Gin';
+    var liquor = $('#liquor option:selected').val();
 var apiUrl = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + liquor;
     fetch(apiUrl)
         .then(function (response) {
@@ -51,6 +53,9 @@ var apiUrl = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + liquo
 //         });
 // };
 
-getMeal();
-getDrink();
-// getMovie();
+$('#init').click(function (event) { 
+    event.preventDefault();
+    getMeal();
+    getDrink();
+    
+});
