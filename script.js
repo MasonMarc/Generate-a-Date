@@ -1,7 +1,8 @@
 
 
 var getMeal = function () {
-var apiUrl = 'www.themealdb.com/api/json/v1/1/filter.php?c=Seafood'
+    var category = 'Seafood';
+var apiUrl = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=' + category
     fetch(apiUrl)
         .then(function (response) {
             if (response.ok) {
