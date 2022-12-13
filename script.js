@@ -66,7 +66,7 @@ var displayMeal = function (meals) {
     var mealDesc = meals[randMeal].strInstructions;
     console.log(meals);
     $('#mealDesc').text(mealDesc);
-    var meallink = "https://www.google.com/search?q=" + mealName
+    var mealLink = "https://www.google.com/search?q=" + mealName
     $("#mealLink").attr("href", mealLink)
 
 
@@ -99,7 +99,7 @@ var displayDrink = function (drinks) {
     $('#drinkTitle').text(drinkName);
     var drinkspicurl = drinks[randDrink].strDrinkThumb
     $("#drinkPic").attr("src", drinkspicurl)
-    var drinksLink = "https://www.google.com/search?q=" + drinkName
+    var drinksLink = "https://www.google.com/search?q=" + drinkName + ' drink';
     $("#drinkLink").attr("href", drinksLink)
 
     var drinkID = drinks[randDrink].idDrink;
@@ -113,7 +113,14 @@ var displayDrink = function (drinks) {
                 response.json().then(function (data) {
                     var drinkDesc = data.drinks[0].strInstructions;
                     $('#drinkDesc').text(drinkDesc);
-                    console.log(data);
+                    var drinkIng1 = data.drinks[0].strIngredient1;
+                    $('#drinkList').append('<li>' + drinkIng1 + '</li>');
+                    var drinkIng2 = data.drinks[0].strIngredient2;
+                    $('#drinkList').append('<li>' + drinkIng2 + '</li>');
+                    var drinkIng3 = data.drinks[0].strIngredient3;
+                    $('#drinkList').append('<li>' + drinkIng3 + '</li>');
+                    var drinkIng4 = data.drinks[0].strIngredient4;
+                    $('#drinkList').append('<li>' + drinkIng4 + '</li>');
                 });
             } else {
                 alert('Error: ' + response.statusText);
