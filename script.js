@@ -7,7 +7,6 @@ var getMeal = function () {
                 response.json().then(function (data) {
                     var meals = data.meals;
                     displayMeal(meals);
-                    console.log(meals);
                 });
             } else {
                 alert('Error: ' + response.statusText);
@@ -24,10 +23,8 @@ var getDrink = function () {
         .then(function (response) {
             if (response.ok) {
                 response.json().then(function (data) {
-                    console.log(data);
                     var drinks = data.drinks;
                     displayDrink(drinks);
-                    console.log(drinks);
                 });
             } else {
                 alert('Error: ' + response.statusText);
@@ -45,7 +42,7 @@ var getMovie = function () {
         .then(function (response) {
             if (response.ok) {
                 response.json().then(function (data) {
-                    console.log(data);
+                    displayMovie(data);
                 });
             } else {
                 alert('Error: ' + response.statusText);
@@ -58,41 +55,35 @@ var getMovie = function () {
 var displayMeal = function (meals) {
     var randMeal = Math.floor(meals.length * Math.random());
     var mealName = meals[randMeal].strMeal;
-    console.log(mealName);
-    console.log(randMeal);
-    $('#meal-title').text(mealName);
+    $('#mealTitle').text(mealName);
     var mealpicurl = meals[randMeal].strMealThumb
     $("#mealPic").attr("src", mealpicurl)
     var meallink = "https://www.google.com/search?q=" + mealName
-    $("#meallink").attr("href", meallink)    
-     }
-     
-     var displayDrink = function (drinks) {
-        var randDrink = Math.floor(drinks.length * Math.random());
-        var drinksName = drinks[randDrink].strDrink;
-        console.log("test")
-        console.log(randDrink);
-        $('#drink-title').text(drinksName);
-        var drinkspicurl = drinks[randDrink].strDrinkThumb
-        $("#drinkPic").attr("src", drinkspicurl)
-        var drinkslink = "https://www.google.com/search?q=" + drinksName
-        $("#drinklink").attr("href", drinkslink)
-
-
+    $("#mealLink").attr("href", mealLink)
 }
+
 var displayDrink = function (drinks) {
     var randDrink = Math.floor(drinks.length * Math.random());
-    var drinksName = drinks[randDrink].strDrink;
-    console.log("test")
-    console.log(randDrink);
-    $('#drink-title').text(drinksName);
+    var drinkName = drinks[randDrink].strDrink;
+    $('#drinkTitle').text(drinkName);
     var drinkspicurl = drinks[randDrink].strDrinkThumb
     $("#drinkPic").attr("src", drinkspicurl)
-    var drinkslink = "https://www.google.com/search?q=" + drinksName
-    $("#drinklink").attr("href", drinkslink)
-
-
+    var drinksLink = "https://www.google.com/search?q=" + drinkName
+    $("#drinkLink").attr("href", drinksLink)
 }
+
+var displayMovie = function (data) {
+    var movieName = data.Title;
+    $('#movieTitle').text(movieName);
+    var moviePoster = data.Poster;
+    $("#moviePic").attr("src", moviePoster)
+    var moviePlot = data.Plot;
+    $('#moviePlot').text(moviePlot);
+    var movieId = data.imdbID;
+    var movieLink = "https://www.imdb.com/title/" + movieId;
+    $("#movieLink").attr("href", movieLink)
+}
+
 $('#init').click(function (event) {
     event.preventDefault();
     getMeal();
