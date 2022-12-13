@@ -1,7 +1,7 @@
 var getMeal = function () {
     var ingredient = $('#ingredient').val();
     localStorage.setItem("ingredient", ingredient);
-    var apiUrl = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=' + ingredient
+    var apiUrl = 'https://www.themealdb.com/api/json/v1/1/filter.php?i=' + ingredient
     fetch(apiUrl)
         .then(function (response) {
             if (response.ok) {
@@ -141,7 +141,7 @@ var displayMovie = function (data) {
 
 var getMealRand = function () {
     var ingredient = localStorage.getItem("ingredient");
-    var apiUrl = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=' + ingredient
+    var apiUrl = 'https://www.themealdb.com/api/json/v1/1/filter.php?i=' + ingredient
     fetch(apiUrl)
         .then(function (response) {
             if (response.ok) {
@@ -191,5 +191,11 @@ $('#init').click(function (event) {
     getMeal();
     getDrink();
     getMovie();
+
+});
+
+$('#initHome').click(function (event) {
+    event.preventDefault();
+    window.location.assign("results.html")
 
 });

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generate-A-Date</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" href="./assets/style.css">
+  <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+
+</head>
+
+<body>
+  <section class="row w-100 justify-content-center align-items-center">
+    <div class="col-10 col-md-6 col-lg-5">
+      <form class= "bg-light rounded-4 row my-3 gy-4 p-4">
+        <fieldset>
+            <legend>Generate-A-Date</legend>
+            <!--Input field-->
+            <div class="mb-3">
+                <label for="TextInput" class="form-label">input</label>
+                <input type="text" id="ingredient" class="form-control" placeholder="input">
+            </div>
+            <!---First dropdown list-->
+            <div class="mb-3">
+                <label for="  Select" class="form-label"> select menu</label>
+                <select id="liquor" class="form-select">
+                    <option>Select from:</option>
+          <option>Vodka</option>
+          <option>Gin</option>
+          <option>Rum</option>
+          <option>Tequila</option>
+          <option>Brandy</option>
+          <option>Whiskey</option>
+                </select>
+            </div>
+            <!--2nd dropdown list-->
+            <div class="mb-3">
+                <label for="  Select" class="form-label"> select menu</label>
+                <select id="  Select" class="form-select">
+                    <option> select</option>
+                    <option> select</option>
+                    <option> select</option>
+                    <option> select</option>
+                    <option> select</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary" id="init">Submit</button>
+            <button type="submit" class="btn btn-primary" id="randomizer">Generate New</button>
+        </fieldset>
+    </form>
+  </div>
+<!---This section is section is for meals -->
+<div class="row w-100 justify-content-center">
+    <div class="card rounded-4 col-3 p-2 m-2">
+        <img id= "mealPic" src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" id = "mealTitle">Card title</h5>
+          <p class="card-text" id="mealDesc">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        <div class="card-body">
+          <a target= "_blank" id="mealLink" href="#" class="card-link">Link to recipe</a>
+        </div>
+      </div>
+<!---This section is section is for drinks -->
+      <div class="card rounded-4 col-3 p-2 m-2">
+        <img id= "drinkPic" src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" id="drinkTitle">Card title</h5>
+          <p class="card-text" id="drinkDesc">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        <div class="card-body">
+          <a target= "_blank" href="#" class="card-link" id="drinkLink">Click for recipe</a>
+        </div>
+      </div>
+<!---This section is section is for movies -->
+      <div class="card rounded-4 col-3 p-2 m-2">
+        <img src="..." class="card-img-top" alt="..." id="moviePic">
+        <div class="card-body">
+          <h5 class="card-title" id="movieTitle">Card title</h5>
+          <p class="card-text" id="moviePlot">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        <div class="card-body">
+          <a target= "_blank" href="#" class="card-link" id="movieLink">IMDB Link</a>
+        </div>
+      </div>
+    </div>
+ 
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="./script.js"></script>
+</body>
+
+</html>
