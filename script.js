@@ -1,5 +1,6 @@
 var getMeal = function () {
     var ingredient = $('#ingredient').val();
+    localStorage.setItem("ingredient", ingredient);
     var apiUrl = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=' + ingredient
     fetch(apiUrl)
         .then(function (response) {
@@ -18,6 +19,7 @@ var getMeal = function () {
 };
 var getDrink = function () {
     var liquor = $('#liquor option:selected').val();
+    localStorage.setItem("liquor", liquor);
     var apiUrl = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + liquor;
     fetch(apiUrl)
         .then(function (response) {
@@ -71,12 +73,12 @@ var displayMeal = function (meals) {
     var apiUrl = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=' + mealID;
     console.log(apiUrl);
     fetch(apiUrl)
-    .then(function (response) {
-        if (response.ok) {
-            response.json().then(function (data) {
-                var mealDesc = data.meals[0].strInstructions;
-                $('#mealDesc').text(mealDesc);
-                console.log(data);
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (data) {
+                    var mealDesc = data.meals[0].strInstructions;
+                    $('#mealDesc').text(mealDesc);
+                    console.log(data);
                 });
             } else {
                 alert('Error: ' + response.statusText);
@@ -85,7 +87,7 @@ var displayMeal = function (meals) {
         .catch(function (error) {
             alert('Unable to connect');
         });
-// -----------------------------------------
+    // -----------------------------------------
 }
 
 var displayDrink = function (drinks) {
@@ -96,19 +98,19 @@ var displayDrink = function (drinks) {
     $("#drinkPic").attr("src", drinkspicurl)
     var drinksLink = "https://www.google.com/search?q=" + drinkName
     $("#drinkLink").attr("href", drinksLink)
-    
+
     var drinkID = drinks[randDrink].idDrink;
     console.log(drinkID);
     // Pulled again from drink api to get instructions
     var apiUrl = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + drinkID;
     console.log(apiUrl);
     fetch(apiUrl)
-    .then(function (response) {
-        if (response.ok) {
-            response.json().then(function (data) {
-                var drinkDesc = data.drinks[0].strInstructions;
-                $('#drinkDesc').text(drinkDesc);
-                console.log(data);
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (data) {
+                    var drinkDesc = data.drinks[0].strInstructions;
+                    $('#drinkDesc').text(drinkDesc);
+                    console.log(data);
                 });
             } else {
                 alert('Error: ' + response.statusText);
@@ -117,14 +119,10 @@ var displayDrink = function (drinks) {
         .catch(function (error) {
             alert('Unable to connect');
         });
-// -----------------------------------------
-    
+    // -----------------------------------------
+
 
 };
-
-
-
-
 
 
 var displayMovie = function (data) {
@@ -138,6 +136,55 @@ var displayMovie = function (data) {
     var movieLink = "https://www.imdb.com/title/" + movieId;
     $("#movieLink").attr("href", movieLink)
 }
+
+
+
+var getMealRand = function () {
+    var ingredient = localStorage.getItem("ingredient");
+    var apiUrl = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=' + ingredient
+    fetch(apiUrl)
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (data) {
+                    var meals = data.meals;
+                    displayMeal(meals);
+                });
+            } else {
+                alert('Error: ' + response.statusText);
+            }
+        })
+        .catch(function (error) {
+            alert('Unable to connect');
+        });
+};
+
+var getDrinkRand = function () {
+    var liquor = localStorage.getItem("liquor");
+    var apiUrl = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + liquor;
+    fetch(apiUrl)
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (data) {
+                    var drinks = data.drinks;
+                    displayDrink(drinks);
+                });
+            } else {
+                alert('Error: ' + response.statusText);
+            }
+        })
+        .catch(function (error) {
+            alert('Unable to connect');
+        });
+};
+
+$('#randomizer').click(function (event) {
+    event.preventDefault();
+    getMealRand();
+    getDrinkRand();
+    getMovie();
+
+});
+
 
 $('#init').click(function (event) {
     event.preventDefault();
