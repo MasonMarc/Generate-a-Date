@@ -64,7 +64,19 @@ var displayMeal = function (meals) {
     var mealpicurl = meals[randMeal].strMealThumb
     $("#mealPic").attr("src", mealpicurl)
     var meallink = "https://www.google.com/search?q=" + mealName
-    $("#meallink").attr("href", meallink)
+    $("#meallink").attr("href", meallink)    
+     }
+     
+     var displayDrink = function (drinks) {
+        var randDrink = Math.floor(drinks.length * Math.random());
+        var drinksName = drinks[randDrink].strDrink;
+        console.log("test")
+        console.log(randDrink);
+        $('#drink-title').text(drinksName);
+        var drinkspicurl = drinks[randDrink].strDrinkThumb
+        $("#drinkPic").attr("src", drinkspicurl)
+        var drinkslink = "https://www.google.com/search?q=" + drinksName
+        $("#drinklink").attr("href", drinkslink)
 
 
 }
