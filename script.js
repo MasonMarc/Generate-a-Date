@@ -1,5 +1,8 @@
 var getMeal = function () {
     var ingredient = $('#ingredient').val();
+    if (ingredient === "") {
+        $('#modal').click()
+    }
     localStorage.setItem("ingredient", ingredient);
     var apiUrl = 'https://www.themealdb.com/api/json/v1/1/filter.php?i=' + ingredient
     fetch(apiUrl)
@@ -137,7 +140,7 @@ var displayMovie = function (data) {
     $("#movieLink").attr("href", movieLink)
 }
 
-
+$("#modal").css("display", "none");
 
 var getMealRand = function () {
     var ingredient = localStorage.getItem("ingredient");
