@@ -1,4 +1,32 @@
 :root {
     --main: #9574F5;
-    --light: #ffffff;
+    --light: #F545B3;
+    --dark: #5D60DE;
+    --accent1: #A8608D;
+    --accent2: #67C7F5;
+  }
+
+  body{
+    background-color: var(--main);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+
+  .card{
+    background-color: var(--accent1);
+  }
+
+  form{
+    background-color: var(--accent1);
+  }
+
+  a{
+    color: var(--accent2);
+    border: solid #9574F5;
+    padding: 0.5em;
+    background-color: #9574F5;
+  }
+
+  img{
+    border-radius: 5%;
+    height: 35em;
   }
