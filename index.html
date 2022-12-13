@@ -17,11 +17,13 @@
     <div class="col-10 col-md-6 col-lg-5">
       <form class= "bg-light rounded-4 row my-3 gy-4 p-4">
         <fieldset>
-            <legend> fieldset example</legend>
+            <legend>Generate-A-Date</legend>
+            <!--Input field-->
             <div class="mb-3">
-                <label for="TextInput" class="form-label"> input</label>
+                <label for="TextInput" class="form-label">input</label>
                 <input type="text" id="ingredient" class="form-control" placeholder="input">
             </div>
+            <!---First dropdown list-->
             <div class="mb-3">
                 <label for="  Select" class="form-label"> select menu</label>
                 <select id="liquor" class="form-select">
@@ -34,9 +36,14 @@
           <option>Whiskey</option>
                 </select>
             </div>
+            <!--2nd dropdown list-->
             <div class="mb-3">
                 <label for="  Select" class="form-label"> select menu</label>
                 <select id="  Select" class="form-select">
+                    <option> select</option>
+                    <option> select</option>
+                    <option> select</option>
+                    <option> select</option>
                     <option> select</option>
                 </select>
             </div>
@@ -44,6 +51,8 @@
             <button type="submit" class="btn btn-primary">Generate New</button>
         </fieldset>
     </form>
+  </div>
+<!---This section is section is for meals -->
 <div class="row w-100 justify-content-center">
     <div class="card rounded-4 col-3 p-2 m-2">
         <img id= "mealPic" src="..." class="card-img-top" alt="...">
@@ -55,6 +64,7 @@
           <a target= "_blank" id="meallink" href="#" class="card-link">Link to recipe</a>
         </div>
       </div>
+<!---This section is section is for drinks -->
       <div class="card rounded-4 col-3 p- m-2">
         <img id= "drinkPic" src="..." class="card-img-top" alt="...">
         <div class="card-body">
@@ -65,19 +75,19 @@
           <a target= "_blank" href="#" class="card-link" id="drinklink">Click for recipe</a>
         </div>
       </div>
+<!---This section is section is for movies -->
       <div class="card rounded-4 col-3 p-2 m-2">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         </div>
-
         <div class="card-body">
           <a target= "_blank" href="#" class="card-link">Card link</a>
         </div>
       </div>
     </div>
-  </div>
+ 
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="./script.js"></script>
