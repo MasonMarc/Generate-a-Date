@@ -58,8 +58,34 @@ var displayMeal = function (meals) {
     $('#mealTitle').text(mealName);
     var mealpicurl = meals[randMeal].strMealThumb
     $("#mealPic").attr("src", mealpicurl)
+    var mealDesc = meals[randMeal].strInstructions;
+    console.log(meals);
+    $('#mealDesc').text(mealDesc);
     var meallink = "https://www.google.com/search?q=" + mealName
     $("#mealLink").attr("href", mealLink)
+
+
+    var mealID = meals[randMeal].idMeal;
+    console.log(mealID);
+    // Pulled again from meal api to get instructions
+    var apiUrl = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=' + mealID;
+    console.log(apiUrl);
+    fetch(apiUrl)
+    .then(function (response) {
+        if (response.ok) {
+            response.json().then(function (data) {
+                var mealDesc = data.meals[0].strInstructions;
+                $('#mealDesc').text(mealDesc);
+                console.log(data);
+                });
+            } else {
+                alert('Error: ' + response.statusText);
+            }
+        })
+        .catch(function (error) {
+            alert('Unable to connect');
+        });
+// -----------------------------------------
 }
 
 var displayDrink = function (drinks) {
@@ -70,7 +96,36 @@ var displayDrink = function (drinks) {
     $("#drinkPic").attr("src", drinkspicurl)
     var drinksLink = "https://www.google.com/search?q=" + drinkName
     $("#drinkLink").attr("href", drinksLink)
-}
+    
+    var drinkID = drinks[randDrink].idDrink;
+    console.log(drinkID);
+    // Pulled again from drink api to get instructions
+    var apiUrl = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + drinkID;
+    console.log(apiUrl);
+    fetch(apiUrl)
+    .then(function (response) {
+        if (response.ok) {
+            response.json().then(function (data) {
+                var drinkDesc = data.drinks[0].strInstructions;
+                $('#drinkDesc').text(drinkDesc);
+                console.log(data);
+                });
+            } else {
+                alert('Error: ' + response.statusText);
+            }
+        })
+        .catch(function (error) {
+            alert('Unable to connect');
+        });
+// -----------------------------------------
+    
+
+};
+
+
+
+
+
 
 var displayMovie = function (data) {
     var movieName = data.Title;
