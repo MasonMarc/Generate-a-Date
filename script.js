@@ -47,7 +47,12 @@ var getMovie = function () {
         .then(function (response) {
             if (response.ok) {
                 response.json().then(function (data) {
-                    displayMovie(data);
+                    console.log(data);
+                    if(data.Poster !== "N/A" && data.Language==="English"){
+                        displayMovie(data);
+                    } else {
+                        getMovie();
+                    }
                 });
             } else {
                 alert('Error: ' + response.statusText);
@@ -64,24 +69,20 @@ var displayMeal = function (meals) {
     var mealpicurl = meals[randMeal].strMealThumb
     $("#mealPic").attr("src", mealpicurl)
     var mealDesc = meals[randMeal].strInstructions;
-    console.log(meals);
     $('#mealDesc').text(mealDesc);
     var mealLink = "https://www.google.com/search?q=" + mealName
     $("#mealLink").attr("href", mealLink)
 
 
     var mealID = meals[randMeal].idMeal;
-    console.log(mealID);
     // Pulled again from meal api to get instructions
     var apiUrl = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=' + mealID;
-    console.log(apiUrl);
     fetch(apiUrl)
         .then(function (response) {
             if (response.ok) {
                 response.json().then(function (data) {
                     var mealDesc = data.meals[0].strInstructions;
                     $('#mealDesc').text(mealDesc);
-                    console.log(data);
                 });
             } else {
                 alert('Error: ' + response.statusText);
@@ -103,10 +104,8 @@ var displayDrink = function (drinks) {
     $("#drinkLink").attr("href", drinksLink)
 
     var drinkID = drinks[randDrink].idDrink;
-    console.log(drinkID);
     // Pulled again from drink api to get instructions
     var apiUrl = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + drinkID;
-    console.log(apiUrl);
     fetch(apiUrl)
         .then(function (response) {
             if (response.ok) {
@@ -114,13 +113,13 @@ var displayDrink = function (drinks) {
                     var drinkDesc = data.drinks[0].strInstructions;
                     $('#drinkDesc').text(drinkDesc);
                     var drinkIng1 = data.drinks[0].strIngredient1;
-                    $('#drinkList').append('<li>' + drinkIng1 + '</li>');
                     var drinkIng2 = data.drinks[0].strIngredient2;
-                    $('#drinkList').append('<li>' + drinkIng2 + '</li>');
                     var drinkIng3 = data.drinks[0].strIngredient3;
-                    $('#drinkList').append('<li>' + drinkIng3 + '</li>');
                     var drinkIng4 = data.drinks[0].strIngredient4;
-                    $('#drinkList').append('<li>' + drinkIng4 + '</li>');
+                    $('#Ing1').text(drinkIng1);
+                    $('#Ing2').text(drinkIng2);
+                    $('#Ing3').text(drinkIng3);
+                    $('#Ing4').text(drinkIng4);
                 });
             } else {
                 alert('Error: ' + response.statusText);
