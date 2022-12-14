@@ -42,7 +42,7 @@ var getDrink = function () {
 var getMovie = function () {
     var rand1 = Math.floor(10000 + Math.random() * 10000);
     var rand = rand1.toString();
-    var apiUrl = 'http://www.omdbapi.com/?i=tt01' + rand + '&apikey=5523dad2';
+    var apiUrl = 'https://www.omdbapi.com/?i=tt01' + rand + '&apikey=5523dad2';
     fetch(apiUrl)
         .then(function (response) {
             if (response.ok) {
