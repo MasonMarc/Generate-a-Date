@@ -7,12 +7,14 @@
   }
 
   body{
-    background-color: var(--main);
+    background: linear-gradient(to left top,var(--light) 47%, var(--dark) 100%);
     font-family: Georgia, 'Times New Roman', Times, serif;
   }
 
   .card{
-    background-color: var(--accent1);
+    background: var(--dark);
+  border: 2px solid var(--light);
+  color: beige;
   }
 
   form{
@@ -20,10 +22,16 @@
   }
 
   a{
-    color: var(--accent2);
+    color: white;
     border: solid #9574F5;
     padding: 0.5em;
-    background-color: #9574F5;
+    background: linear-gradient(to left top,var(--light) 47%, var(--dark) 100%);
+  }
+  a:hover{
+    color: black;
+    border: solid beige;
+    padding: 0.5em;
+    background: linear-gradient(to left top,var(--light) 47%, var(--dark) 100%);
   }
 
   img{
