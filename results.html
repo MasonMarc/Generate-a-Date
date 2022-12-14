@@ -18,7 +18,7 @@
     <div class="col-10 col-md-6 col-lg-5">
       <form class= "bg-light rounded-4 row my-3 gy-4 p-4">
         <fieldset>
-            <legend>Generate-A-Date</legend>
+            <legend class="text-center">Generate-A-Date</legend>
             <!--Input field-->
             <div class="mb-3">
                 <label for="TextInput" class="form-label">Input an Ingredient</label>
@@ -37,12 +37,13 @@
           <option>Whiskey</option>
                 </select>
             </div>
+            <div class="text-center">
             <button type="submit" class="btn btn-primary" id="init">Submit</button>
             <button type="submit" class="btn btn-primary" id="randomizer">Generate New</button>
             <button type="button" class="btn btn-primary" id="modal" data-bs-toggle="modal" data-bs-target="#exampleModal">
               Launch demo modal
             </button>
-            
+          </div>
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
