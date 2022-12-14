@@ -30,3 +30,7 @@
     border-radius: 5%;
     height: 35em;
   }
+
+  li{
+    list-style: square;
+  }
