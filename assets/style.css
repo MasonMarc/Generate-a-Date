@@ -21,13 +21,13 @@
     background-color: var(--accent1);
   }
 
-  a{
+  a, button{
     color: white;
     border: solid #9574F5;
     padding: 0.5em;
     background: linear-gradient(to left top,var(--light) 47%, var(--dark) 100%);
   }
-  a:hover{
+  a:hover, button:hover{
     color: black;
     border: solid beige;
     padding: 0.5em;
