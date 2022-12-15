@@ -3,7 +3,7 @@
 ![Generate A Date](./assets/images/generate%20a%20date.png)
 
 
-Link to our [Generate-A-Date](https://masonmarc.github.io/Generate-a-Date/) repository.
+Link to our [Generate-A-Date](https://masonmarc.github.io/Generate-a-Date/) website.
 
 ## Description
 This Generate-A-Date is a generator made for date ideas.
